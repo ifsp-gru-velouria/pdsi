@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="32" height="32">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="184" height="184" rx="48" fill="url(#favBg)" stroke="#34d399" stroke-width="6" />
+
+  <!-- Cantos de foco PDI -->
+  <g stroke="#34d399" stroke-width="6" stroke-linecap="round">
+    <path d="M 36 56 L 36 36 L 56 36" />
+    <path d="M 144 36 L 164 36 L 164 56" />
+    <path d="M 36 144 L 36 164 L 56 164" />
+    <path d="M 144 164 L 164 164 L 164 144" />
+  </g>
+
+  <!-- PDS: Senóide contínua com amostras discretas -->
+  <path
+    d="M 34 100 Q 56 46, 78 52 T 100 100 T 122 148 Q 144 154, 166 100"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <circle cx="78" cy="52" r="9" fill="#34d399" />
+  <circle cx="100" cy="100" r="7" fill="#34d399" />
+  <circle cx="122" cy="148" r="9" fill="#34d399" />
+</svg>

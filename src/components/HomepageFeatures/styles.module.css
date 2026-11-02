@@ -1,0 +1,48 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.featureCol {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.75rem 1.25rem;
+  border-radius: var(--ifm-card-border-radius, 12px);
+  background-color: var(--ifm-card-background-color, transparent);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featureSvg {
+  height: 150px;
+  width: 150px;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover .featureSvg {
+  transform: scale(1.05);
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ifm-font-color-base);
+  opacity: 0.9;
+  min-height: 4.8rem;
+}

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Gradiente de fundo do escudo -->
+    <linearGradient id="pdsiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#132338" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Gradiente primário esmeralda / IFSP -->
+    <linearGradient id="pdsiEmerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#25c2a0" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <!-- Gradiente da borda -->
+    <linearGradient id="pdsiBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#25c2a0" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Filtro de brilho sutil (glow) -->
+    <filter id="pdsiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base: Squircle com borda de gradiente tecnológico -->
+  <rect
+    x="12"
+    y="12"
+    width="176"
+    height="176"
+    rx="44"
+    fill="url(#pdsiBg)"
+    stroke="url(#pdsiBorder)"
+    stroke-width="3"
+  />
+
+  <!-- PDI: Marcadores de enquadramento do sensor / foco de imagem (4 cantos) -->
+  <g stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <!-- Canto superior esquerdo -->
+    <path d="M 36 50 L 36 36 L 50 36" />
+    <!-- Canto superior direito -->
+    <path d="M 150 36 L 164 36 L 164 50" />
+    <!-- Canto inferior esquerdo -->
+    <path d="M 36 150 L 36 164 L 50 164" />
+    <!-- Canto inferior direito -->
+    <path d="M 150 164 L 164 164 L 164 150" />
+  </g>
+
+  <!-- PDI: Grade matricial de pixels (representando imagem digital e amostragem espacial) -->
+  <g fill="#25c2a0">
+    <rect x="52" y="52" width="12" height="12" rx="3" opacity="0.15" />
+    <rect x="74" y="52" width="12" height="12" rx="3" opacity="0.35" />
+    <rect x="96" y="52" width="12" height="12" rx="3" opacity="0.6" />
+    <rect x="118" y="52" width="12" height="12" rx="3" opacity="0.25" />
+    <rect x="140" y="52" width="12" height="12" rx="3" opacity="0.4" />
+
+    <rect x="52" y="138" width="12" height="12" rx="3" opacity="0.2" />
+    <rect x="74" y="138" width="12" height="12" rx="3" opacity="0.5" />
+    <rect x="96" y="138" width="12" height="12" rx="3" opacity="0.3" />
+    <rect x="118" y="138" width="12" height="12" rx="3" opacity="0.7" />
+    <rect x="140" y="138" width="12" height="12" rx="3" opacity="0.25" />
+  </g>
+
+  <!-- Eixo temporal central de referência -->
+  <line
+    x1="34"
+    y1="100"
+    x2="166"
+    y2="100"
+    stroke="#334155"
+    stroke-width="1.5"
+    stroke-dasharray="3 3"
+  />
+
+  <!-- PDS: Amostras Discretas (Hastes / Impulsos amostrais de Nyquist) -->
+  <g stroke="#34d399" stroke-width="2.5" opacity="0.9">
+    <!-- n = -2 -->
+    <line x1="56" y1="100" x2="56" y2="76" />
+    <circle cx="56" cy="76" r="3.5" fill="#34d399" />
+
+    <!-- n = -1 (Pico positivo 1) -->
+    <line x1="78" y1="100" x2="78" y2="58" />
+    <circle cx="78" cy="58" r="4" fill="#6ee7b7" filter="url(#pdsiGlow)" />
+
+    <!-- n = 0 (Cruzamento por zero) -->
+    <circle cx="100" cy="100" r="3.5" fill="#34d399" />
+
+    <!-- n = +1 (Vale negativo) -->
+    <line x1="122" y1="100" x2="122" y2="136" />
+    <circle cx="122" cy="136" r="4" fill="#34d399" />
+
+    <!-- n = +2 -->
+    <line x1="144" y1="100" x2="144" y2="114" />
+    <circle cx="144" cy="114" r="3.5" fill="#34d399" />
+  </g>
+
+  <!-- PDS: Onda Analógica Contínua (Senóide em destaque com brilho esmeralda) -->
+  <path
+    d="M 38 100 Q 58 54, 78 58 T 100 100 T 122 136 Q 142 138, 162 100"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#pdsiGlow)"
+  />
+
+  <!-- Monograma sutil PDSI centralizado na base -->
+  <text
+    x="100"
+    y="178"
+    font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="12"
+    font-weight="900"
+    letter-spacing="2.5"
+    text-anchor="middle"
+    fill="#6ee7b7"
+    opacity="0.95"
+  >
+    PDSI
+  </text>
+</svg>
