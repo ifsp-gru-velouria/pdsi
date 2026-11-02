@@ -1,0 +1,183 @@
+---
+sidebar_position: 3
+title: Sinais e Sistemas
+description: Sinais de tempo contínuo e discreto, energia, potência e transformações da variável independente.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TransformationsDemo from '@site/src/components/TransformationsDemo';
+
+# Sinais e Sistemas
+
+Material de referência: Sinais e Sistemas
+
+**Autor: Rodrigo Bortoletto**
+
+**Instituto Federal de São Paulo - IFSP**  
+*Campus Guarulhos*
+
+
+---
+
+## Sumário da Aula
+
+1. [Sinais e Representação Matemática](#1-sinais-e-representação-matemática)
+2. [Energia e Potência de um Sinal](#2-energia-e-potência-de-um-sinal)
+3. [Transformações da Variável Independente](#3-transformações-da-variável-independente)
+
+---
+
+## 1. Sinais e Representação Matemática
+
+Sinais são funções que contêm informações sobre o estado ou comportamento de um sistema físico. Podem ser classificados quanto à natureza da variável independente.
+
+### Tempo Contínuo vs. Tempo Discreto
+
+- **Tempo Contínuo $x(t)$**: A variável independente $t$ assume qualquer valor real ($t \in \mathbb{R}$).
+  - *Exemplos*: Tensão elétrica em um resistor, pressão acústica da voz humana.
+- **Tempo Discreto $x[n]$**: A variável independente $n$ assume apenas valores inteiros ($n \in \mathbb{Z}$).
+  - *Exemplos*: Saldo bancário diário, amostras digitais de áudio.
+
+:::info[Nota de Notação]
+Usamos **parênteses `()`** para sinal contínuo $x(t)$ e **colchetes `[]`** para sinal discreto $x[n]$.
+:::
+
+---
+
+## 2. Energia e Potência de um Sinal
+
+A **energia total** $E_{\infty}$ e a **potência média** $P_{\infty}$ auxiliam na caracterização física e na classificação da natureza temporal do sinal.
+
+### Definições Matemáticas
+
+<Tabs>
+  <TabItem value="continuo" label="Tempo Contínuo" default>
+
+  **Energia Total ($E_{\infty}$):**
+  $$
+  E_{\infty} = \int_{-\infty}^{\infty} |x(t)|^{2} \, dt
+  $$
+
+  **Potência Média ($P_{\infty}$):**
+  $$
+  P_{\infty} = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^{2} \, dt
+  $$
+
+  </TabItem>
+  <TabItem value="discreto" label="Tempo Discreto">
+
+  **Energia Total ($E_{\infty}$):**
+  $$
+  E_{\infty} = \sum_{n=-\infty}^{\infty} |x[n]|^{2}
+  $$
+
+  **Potência Média ($P_{\infty}$):**
+  $$
+  P_{\infty} = \lim_{N \to \infty} \frac{1}{2N+1} \sum_{n=-N}^{N} |x[n]|^{2}
+  $$
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Classificação de Sinais
+
+Os sinais são classificados em três categorias fundamentais segundo sua energia e potência:
+
+1. **Sinais de Energia Finita ($E_{\infty} < \infty$)**:
+   - Possuem potência média nula: $P_{\infty} = \lim_{T \to \infty} \frac{E_{\infty}}{2T} = 0$.
+   - *Exemplo*: Sinal pulso unitário em $0 \le t \le 1$ e zero caso contrário ($E_{\infty} = 1\text{ J}$, $P_{\infty} = 0$).
+
+2. **Sinais de Potência Média Finita ($P_{\infty} > 0$)**:
+   - Possuem energia total infinita: $E_{\infty} = \infty$.
+   - *Exemplo*: Sinal constante $x[n] = 4 \implies P_{\infty} = 16, E_{\infty} = \infty$.
+
+3. **Sinais Sem Energia ou Potência Finitas**:
+   - Tanto $E_{\infty}$ quanto $P_{\infty}$ são infinitos.
+   - *Exemplo*: Sinal de rampa $x(t) = t$.
+
+---
+
+### Exemplo Guiado 1: Energia e Potência
+
+> **Exercício:** Calcule a energia total $E_{\infty}$ e a potência média $P_{\infty}$ do sinal de tempo contínuo:
+> $$x(t) = e^{-2t} u(t)$$
+> onde $u(t)$ representa a função degrau unitário.
+
+#### Solução Passo a Passo
+
+1. **Análise do domínio:**  
+   A função degrau $u(t)$ anula o sinal para $t < 0$, ou seja:
+   $$
+   x(t) = \begin{cases} e^{-2t}, & t \ge 0 \\ 0, & t < 0 \end{cases}
+   $$
+
+2. **Cálculo da Energia Total ($E_{\infty}$):**  
+   $$
+   E_{\infty} = \int_{0}^{\infty} |e^{-2t}|^{2} \, dt = \int_{0}^{\infty} e^{-4t} \, dt
+   $$
+
+3. **Resolução da integral:**  
+   $$
+   E_{\infty} = \left[ \frac{e^{-4t}}{-4} \right]_{0}^{\infty} = 0 - \left( -\frac{1}{4} \right) = \frac{1}{4} \text{ Joules}
+   $$
+
+4. **Conclusão sobre a Potência Média ($P_{\infty}$):**  
+   Como a energia total é finita ($E_{\infty} = \frac{1}{4} < \infty$), a potência média no intervalo infinito é zero ($P_{\infty} = 0$).  
+   *Portanto, $x(t)$ é um **sinal de energia**.*
+
+---
+
+## 3. Transformações da Variável Independente
+
+Transformações no eixo do tempo modificam o argumento do sinal na forma geral:
+$$
+y(t) = x(\alpha t + \beta) \quad \text{ou} \quad y[n] = x[\alpha n + \beta]
+$$
+
+### 🎛️ Demonstração Interativa das Transformações
+
+Use o simulador abaixo para experimentar cada transformação física nos sinais analógico e discreto:
+
+<TransformationsDemo />
+
+---
+
+### Tipos de Transformações
+
+| Operação | Expressão | Efeito Geométrico |
+| :--- | :--- | :--- |
+| **Deslocamento (Shift)** | $x(t - t_0)$ | Se $t_0 > 0$, **atraso** (desloca para a direita). Se $t_0 < 0$, **avanço** (desloca para a esquerda). |
+| **Reflexão / Reversão** | $x(-t)$ | Espelhamento do sinal em relação ao eixo vertical ($t=0$). |
+| **Escalonamento (Scaling)**| $x(at)$ | Se $\|a\| > 1$, **compressão** temporal. Se $\|a\| < 1$, **expansão** temporal. |
+
+:::warning[Atenção]
+Uma transformação linear $x(\alpha t + \beta)$ **preserva a forma fundamental do sinal**, aplicando apenas alterações lineares de escala, sentido e posição.
+:::
+
+---
+
+### Exemplo Guiado 2: Transformações Compostas
+
+> **Exercício:** Dado um sinal $x(t)$ em formato triangular definido no intervalo $t \in [-1, 1]$, determine a sequência de operações para esboçar $y(t) = x(2t + 3)$.
+
+#### Solução Passo a Passo
+
+1. **Regra Prática:**  
+   Execute primeiro o **deslocamento no tempo**, seguido do **escalonamento**.
+
+2. **Passo 1 — Deslocamento:**  
+   Defina $v(t) = x(t + 3)$. O sinal sofre um avanço de $3$ unidades para a esquerda.  
+   - Novo intervalo: $t \in [-1 - 3, 1 - 3] \implies t \in [-4, -2]$.
+
+3. **Passo 2 — Escalonamento:**  
+   Aplique $y(t) = v(2t) = x(2t + 3)$. O sinal é comprimido por um fator de $2$.  
+   - Dividindo os limites do intervalo por $2$:
+   $$
+   \text{Início: } \frac{-4}{2} = -2 \quad \text{e} \quad \text{Fim: } \frac{-2}{2} = -1
+   $$
+
+4. **Resultado Final:**  
+   O triângulo resultante $y(t)$ estará localizado no intervalo $t \in [-2, -1]$.
