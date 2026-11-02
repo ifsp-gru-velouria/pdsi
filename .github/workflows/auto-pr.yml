@@ -33,7 +33,7 @@ jobs:
             --base main \
             --head "$BRANCH_NAME" \
             --title "feat: merge \`$BRANCH_NAME\` into \`main\`" \
-            --body "### Pull Request Automático
+            --body "### Pull Request Automático"
 
           Este Pull Request foi gerado automaticamente a partir de um push na branch \`$BRANCH_NAME\`.
 
